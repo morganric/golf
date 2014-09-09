@@ -12,19 +12,28 @@
 	    center: new google.maps.LatLng(51.423851606124835,-3.233526349067688)
 	}, internal: {id: 'map'}}, function(){
 	  markers = handler.addMarkers([
+
 	    {
-	      "lat": 51.423851606124835,
+	      "lat": <%= @clubs.first["latitude"] %>,
 	      "lng": -3.233526349067688,
 	      "picture": {
-	        "url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
-	        "width":  36,
-	        "height": 36
+	        "url": "https://d30y9cdsu7xlg0.cloudfront.net/png/2400-84.png?Expires=1410170733&Signature=Go30rLjMJ~8wAnKlYQZo~xAITS7EY-51Umv2yWixinvZBq4K5igszHgBdYDhbFpcCRbxuVPAUdl3yqVE1C0O-qHjSFgREf1X~vMQww0M7zoAqhd1Z1mlpdmgBjZjMz7tHSg3UV0DK1jQlGOxjB9RTqjbm5hZHa7Eh2mBuVjS2XU_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
+	        "width":  80,
+	        "height": 80
+
 	      },
-	      "infowindow": "hello!"
+	      "infowindow": "<a href='<%=j club_url(@clubs.first['id']) %>' ><%=j clubs_url(@clubs.first['id']) %></a>"
 	    }
+
+
 	  ]);
+
+	  	 google.maps.event.addListener(markers, 'click', function() {
+		    window.location.href = this.url;
+		});
 	  handler.bounds.extendWith(markers);
 	  // handler.fitMapToBounds();
+
 	});
 
     </script>
