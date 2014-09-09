@@ -1,0 +1,17 @@
+
+<div class="container" >
+<h1>Clubs</h1>
+
+<ol>
+    <% @clubs.each do |club| %>
+      <li>
+        <h2><%= link_to club.name, club %></h2>
+      </li>
+    <% end %>
+</ol>
+
+<br>
+
+<%= link_to 'New Club', new_club_path %>
+
+</div>

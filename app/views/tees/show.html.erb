@@ -1,0 +1,22 @@
+<p>
+  <strong>Colour:</strong>
+  <%= @tee.colour %>
+</p>
+
+<p>
+  <strong>Par:</strong>
+  <%= @tee.par %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @tee.length %>
+</p>
+
+<p>
+  <strong>Hole:</strong>
+  <%= @tee.hole_id %>
+</p>
+
+<%= link_to 'Edit', edit_tee_path(@tee) %> |
+<%= link_to 'Back', tees_path %>

@@ -15,6 +15,18 @@ gem 'devise'
 gem 'pundit'
 gem 'simple_form'
 gem 'thin'
+gem 'geocoder'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'country_select', github: 'stefanpenner/country_select'
+gem 'therubyracer'
+gem "less-rails"
+gem 'less-rails-bootstrap'
+gem "twitter-bootstrap-rails"
+gem 'twitter-bootswatch-rails'
+gem 'twitter-bootswatch-rails-helpers'
+gem 'debugger'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19]

@@ -1,0 +1,14 @@
+<%= simple_form_for(@tee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :colour, as: :select, collection: ["Red", "Yellow", "White"] %>
+    <%= f.input :par %>
+    <%= f.input :length %>
+    <%= f.input :hole_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

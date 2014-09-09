@@ -1,0 +1,15 @@
+<%= simple_form_for(@hole) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :number %>
+    <%= f.input :course_id %>
+    <%= f.input :image %>
+    <%= f.input :stroke_index %>
+    <%= f.input :coords %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

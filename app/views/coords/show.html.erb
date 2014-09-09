@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @coord.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @coord.longitude %>
+</p>
+
+<p>
+  <strong>Hole:</strong>
+  <%= @coord.hole_id %>
+</p>
+
+<%= link_to 'Edit', edit_coord_path(@coord) %> |
+<%= link_to 'Back', coords_path %>

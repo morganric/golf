@@ -1,0 +1,19 @@
+/* Sandstone
+ * Bootswatch
+ *= require_self
+ *= require sandstone/loader
+ *= require sandstone/bootswatch
+*/
+
+
+tr.yellow {
+	background-color: yellow !important;
+}
+
+tr.white {
+	background-color: white !important;
+}
+
+tr.red {
+	background-color: red !important;
+}

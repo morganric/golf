@@ -11,7 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907085619) do
+ActiveRecord::Schema.define(version: 20140909065412) do
+
+  create_table "clubs", force: true do |t|
+    t.string   "name"
+    t.text     "about"
+    t.string   "banner"
+    t.string   "logo"
+    t.string   "address"
+    t.string   "zip_code"
+    t.string   "country"
+    t.string   "phone_number"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "coords", force: true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "hole_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses", force: true do |t|
+    t.integer  "club_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "holes", force: true do |t|
+    t.integer  "number"
+    t.integer  "course_id"
+    t.string   "image"
+    t.integer  "stroke_index"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "coords"
+  end
+
+  create_table "tees", force: true do |t|
+    t.string   "colour"
+    t.integer  "par"
+    t.integer  "length"
+    t.integer  "hole_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

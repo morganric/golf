@@ -1,0 +1,78 @@
+
+<div>
+  <div id="map" style='width: 1500px; height: 250px;'></div>
+</div>
+
+<div class="container">
+
+<h1>
+  <%= @club.name %>
+</h1>
+
+<%= render 'shared/club_nav' %>
+
+<div class="row">
+<div class="col-md-8">
+<p class="well">
+  
+  <%= @club.about.gsub(/\n/, '<br/>').html_safe %>
+</p>
+</div>
+<div class="col-md-4">
+<address>
+  <%= @club.address %>
+</address>
+
+<p>
+  <strong>Country:</strong>
+  <%= @club.country %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @club.phone_number %>
+</p>
+
+</div>
+</div>
+
+
+
+
+<%= link_to 'Edit', edit_club_path(@club) %> |
+<%= link_to 'Back', clubs_path %>
+
+</div>
+
+
+<script type="text/javascript">
+  
+handler = Gmaps.build('Google');
+
+handler.buildMap({
+ provider: {
+  disableDefaultUI: true,
+  mapTypeId: google.maps.MapTypeId.HYBRID,
+  zoom: 8,
+  zoomControl: true
+
+}, internal: {id: 'map'}, MapTypeId: 'HYBRID'}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%=j @club.latitude.to_json.html_safe %>,
+      "lng": <%=j @club.longitude.to_json.html_safe %>,
+      "picture": {
+        "url": "https://d30y9cdsu7xlg0.cloudfront.net/png/2400-84.png?Expires=1410170733&Signature=Go30rLjMJ~8wAnKlYQZo~xAITS7EY-51Umv2yWixinvZBq4K5igszHgBdYDhbFpcCRbxuVPAUdl3yqVE1C0O-qHjSFgREf1X~vMQww0M7zoAqhd1Z1mlpdmgBjZjMz7tHSg3UV0DK1jQlGOxjB9RTqjbm5hZHa7Eh2mBuVjS2XU_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
+        "width":  60,
+        "height": 60
+      },
+      "infowindow": "hello!"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  handler.fitMapToBounds();
+});
+
+console.log(handler);
+
+</script>
