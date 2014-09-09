@@ -16,15 +16,11 @@
     <tr>
       <th>Number</th>
       <th>Name</th>
+      <% @course.holes.first.tees.each do %>
       <th>Tee</th>
       <th>Length</th>
       <th>Par</th>
-      <th>Tee</th>
-      <th>Length</th>
-      <th>Par</th>
-      <th>Tee</th>
-      <th>Length</th>
-      <th>Par</th>
+      <% end %>
       <th>View</th>
     </tr>
   </thead>
