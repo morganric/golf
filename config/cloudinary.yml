@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dp74g8ibh
+  api_key: '694585849872742'
+  api_secret: 8X51QPcKWfSjPMsZoAURN3U_yuw
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dp74g8ibh
+  api_key: '694585849872742'
+  api_secret: 8X51QPcKWfSjPMsZoAURN3U_yuw
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dp74g8ibh
+  api_key: '694585849872742'
+  api_secret: 8X51QPcKWfSjPMsZoAURN3U_yuw
+  enhance_image_tag: true
+  static_image_support: false

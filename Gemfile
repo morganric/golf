@@ -25,6 +25,10 @@ gem "twitter-bootstrap-rails"
 gem 'twitter-bootswatch-rails'
 gem 'twitter-bootswatch-rails-helpers'
 gem 'debugger'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'rmagick'
+gem 'mini_magick'
 
 group :production, :test do
   gem 'pg'

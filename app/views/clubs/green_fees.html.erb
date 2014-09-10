@@ -1,0 +1,19 @@
+<div>
+  <div id="map" style='width: 1500px; height: 250px;'></div>
+</div>
+
+<div class="container">
+
+<h1>
+  <%= @club.name %>
+</h1>
+
+<%= render 'shared/club_nav' %>
+
+<div class="row">
+<div class="col-md-8">
+	<p class="well">
+		<%= @club.green_fees.gsub(/\n/, '<br/>').html_safe %>
+	</p>
+</div>
+</div>

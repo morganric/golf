@@ -4,7 +4,9 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :about %>
+    <%= f.label :banner %>
     <%= f.file_field :banner %>
+    <%= f.label :logo %>
     <%= f.file_field :logo %>
     <%= f.label :address %>
     <br/>
@@ -12,6 +14,8 @@
     <%= f.input :zip_code %>
     <%= f.input :country %>
     <%= f.input :phone_number %>
+    <%= f.input :green_fees %>
+    <%= f.input :email %>
     <%= f.input :latitude, as: :hidden %>
     <%= f.input :longitude, as: :hidden %>
   </div>

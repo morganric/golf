@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_action :set_club, only: [:show, :edit, :update, :destroy]
+  before_action :set_club, only: [:show, :green_fees, :contact, :edit, :update, :destroy]
 
   # GET /clubs
   # GET /clubs.json
@@ -10,6 +10,9 @@ class ClubsController < ApplicationController
   # GET /clubs/1
   # GET /clubs/1.json
   def show
+  end
+
+  def contact
   end
 
   # GET /clubs/new
@@ -69,6 +72,7 @@ class ClubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def club_params
-      params.require(:club).permit(:name, :about, :banner, :logo, :address, :zip_code, :country, :phone_number, :latitude, :longitude)
+      params.require(:club).permit(:name, :about, :banner, :logo, 
+        :address, :zip_code, :country, :phone_number, :latitude, :longitude, :green_fees, :email)
     end
 end
