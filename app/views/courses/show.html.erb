@@ -34,7 +34,7 @@
         <td><%= tee.length %></td>
         <td><%= tee.par %></td>
       <% end %>
-      <td><%= link_to "View", hole, :class => "btn btn-sm btn-info pull", 'data-no-turbolink' => true %></td>
+      <td><%= link_to "View", course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id), :class => "btn btn-sm btn-info pull", 'data-no-turbolink' => true %></td>
     </tr>
         <% end %>
     <tr class="info">

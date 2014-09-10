@@ -13,7 +13,7 @@
 <div class="row">
 <div class="col-md-8">
 	<p class="well">
-		<%= @club.email %>
+		<%= mail_to @club.email, @club.email %>
 		<br/>
 		<a href="tel:<%= @club.phone_number %>"><%= @club.phone_number %></a>
 	</p>

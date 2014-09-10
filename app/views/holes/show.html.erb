@@ -44,10 +44,10 @@
 </table> 
   <div class="pull-right">
   <% unless @hole.number == 1 %>
-    <%= link_to "Previous", hole_path(@hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Previous", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   <% unless @hole.number == @hole.course.holes.last.number %>
-    <%= link_to "Next", hole_path(@hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Next", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   </div>
 	</div>

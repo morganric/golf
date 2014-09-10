@@ -17,20 +17,17 @@
 	      "lat": <%= @clubs.first["latitude"] %>,
 	      "lng": -3.233526349067688,
 	      "picture": {
-	        "url": "https://d30y9cdsu7xlg0.cloudfront.net/png/2400-84.png?Expires=1410170733&Signature=Go30rLjMJ~8wAnKlYQZo~xAITS7EY-51Umv2yWixinvZBq4K5igszHgBdYDhbFpcCRbxuVPAUdl3yqVE1C0O-qHjSFgREf1X~vMQww0M7zoAqhd1Z1mlpdmgBjZjMz7tHSg3UV0DK1jQlGOxjB9RTqjbm5hZHa7Eh2mBuVjS2XU_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
-	        "width":  80,
-	        "height": 80
+	        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png",
+	        "width":  30,
+	        "height": 30
 
 	      },
-	      "infowindow": "<a href='<%=j club_url(@clubs.first['id']) %>' ><%=j clubs_url(@clubs.first['id']) %></a>"
+	      "infowindow": "<a href='<%=j club_url(@clubs.first['id']) %>' ><%=j @clubs.first['name'] %></a>",
+	      "url": "<%=j club_url(@clubs.first['id']) %>"
 	    }
 
 
 	  ]);
-
-	  	 google.maps.event.addListener(markers, 'click', function() {
-		    window.location.href = this.url;
-		});
 	  handler.bounds.extendWith(markers);
 	  // handler.fitMapToBounds();
 
