@@ -9,28 +9,16 @@
 	handler.buildMap({ provider: {
 		disableDefaultUI: true,
 	    zoom: 6,
-	    center: new google.maps.LatLng(51.423851606124835,-3.233526349067688)
+	    center: new google.maps.LatLng(51.423851606124835,-3.233526349067688),
+	    icon: "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png"
 	}, internal: {id: 'map'}}, function(){
-	  markers = handler.addMarkers([
 
-	    {
-	      "lat": <%= @clubs.first["latitude"] %>,
-	      "lng": -3.233526349067688,
-	      "picture": {
-	        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png",
-	        "width":  30,
-	        "height": 30
-
-	      },
-	      "infowindow": "<a href='<%=j club_url(@clubs.first['slug']) %>' ><%=j @clubs.first['name'] %></a>",
-	      "url": "<%=j club_url(@clubs.first['id']) %>"
-	    }
-
-
-	  ]);
+	  markers = handler.addMarkers(<%=raw @hash.to_json %>);
 	  handler.bounds.extendWith(markers);
 	  // handler.fitMapToBounds();
 
 	});
+
+	console.log("<%=j @clubs.to_json %>");
 
     </script>
