@@ -41,8 +41,8 @@
       <td>Total</td>
       <td></td>
       <td></td>
-      <% @course.holes.first.tees.each do %>
-      <td><%= @course.total_tee_length(tee.colour[:length] %></td>
+      <% @course.holes.first.tees.each do |tee| %>
+      <td><%= @course.total_tee_length(tee.colour)[:length] %></td>
       <td><%= @course.total_tee_par(tee.colour)[:par] %></td>
       <td></td>
       <% end %>
