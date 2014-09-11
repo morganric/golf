@@ -29,14 +29,14 @@
   <tbody>
     <% @course.holes.each do |hole| %>
     <tr>
-      <td><%= link_to hole.number,  course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id), method: "GET" %></td>
-      <td><%= link_to "Hole #{hole.number}", course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id), method: "GET" %></td>
+      <td><%= link_to hole.number,  course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.slug,:id => hole.id), method: "GET" %></td>
+      <td><%= link_to "Hole #{hole.number}", course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.id,:id => hole.id), method: "GET" %></td>
         <% hole.tees.order("length DESC").each do |tee| %>
           <!-- <td><%= tee.colour %></td> -->
           <td class="<%= tee.colour.downcase %>"><%= tee.length %> yards</td>
           <td><%= tee.par %></td>
         <% end %>
-      <td><%= link_to "View Map", course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id), :class => "btn btn-sm btn-info pull", 'data-no-turbolink' => true %></td>
+      <td><%= link_to "View Map", course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.slug,:id => hole.id), :class => "btn btn-sm btn-info pull", 'data-no-turbolink' => true %></td>
     </tr>
         <% end %>
     <tr class="info">

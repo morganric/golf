@@ -19,12 +19,12 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Courses <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <% @club.courses.each do |course| %>
-              <li><%= link_to course.name, club_course_path(course) %></li>
+              <li><%= link_to course.name, club_course_path(:club_slug => @club.slug, :id => course.slug) %></li>
             <% end %>
           </ul>
         </li>
         <% else %>
-        <li><%= link_to @club.courses.first.name, club_course_path(@club.courses.first) %></li>
+        <li><%= link_to @club.courses.first.name, club_course_path(:club_slug => @club.slug, :id => @club.courses.first.slug) %></li>
         <% end %>
         <li>
           <%= link_to "Green Fees", green_fees_path(@club) %>

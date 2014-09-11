@@ -29,6 +29,7 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'rmagick'
 gem 'mini_magick'
+gem 'friendly_id', '~> 5.0.0'
 
 group :production, :test do
   gem 'pg'

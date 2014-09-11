@@ -1,5 +1,8 @@
 class Club < ActiveRecord::Base
 
+extend FriendlyId
+friendly_id :name, use: :slugged
+
 mount_uploader :logo, ImageUploader
 mount_uploader :banner, ImageUploader
 
