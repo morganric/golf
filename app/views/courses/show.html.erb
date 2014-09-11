@@ -31,7 +31,7 @@
     <tr>
       <td><%= link_to hole.number,  course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.slug,:id => hole.id), method: "GET" %></td>
       <td><%= link_to "Hole #{hole.number}", course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.id,:id => hole.id), method: "GET" %></td>
-        <% hole.tees.order("length DESC").each do |tee| %>
+        <% hole.tees.order("colour DESC").each do |tee| %>
           <!-- <td><%= tee.colour %></td> -->
           <td class="<%= tee.colour.downcase %>"><%= tee.length %> yards</td>
           <td><%= tee.par %></td>
@@ -43,7 +43,7 @@
       <td>Total</td>
       <!-- <td></td> -->
       <td></td>
-      <% @course.holes.first.tees.order("length DESC").each do |tee| %>
+      <% @course.holes.first.tees.order("colour DESC").each do |tee| %>
       <td><%= @course.total_tee_length(tee.colour)[:length] %></td>
       <td><%= @course.total_tee_par(tee.colour)[:par] %></td>
       <!-- <td></td> -->
