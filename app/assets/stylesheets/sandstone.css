@@ -6,14 +6,17 @@
 */
 
 
-tr.yellow {
+tr.yellow, td.yellow {
 	background-color: yellow !important;
+	opacity: 0.8;
 }
 
-tr.white {
+tr.white, td.white {
 	background-color: white !important;
+	opacity: 0.8;
 }
 
-tr.red {
+tr.red, td.red {
 	background-color: red !important;
+	opacity: 0.8;
 }

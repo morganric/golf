@@ -1,7 +1,5 @@
-<div>
-  <div id="map" style='width: 1500px; height: 250px;'></div>
-</div>
-
+<%= render 'shared/club_banner', object: @club, as: @club %>
+	
 <div class="container">
 
 <h1>
@@ -15,5 +13,8 @@
 	<p class="well">
 		<%= @club.green_fees.gsub(/\n/, '<br/>').html_safe %>
 	</p>
+</div>
+<div class="col-md-4" >
+	
 </div>
 </div>

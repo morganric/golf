@@ -1,8 +1,15 @@
 
+<% if @club.banner %>
+<div class="crop">
+   <%= image_tag(@club.banner.url(:banner)) %>
+</div>
+<% else %>
+
 <div>
-  <div id="map" style='width: 1500px; height: 250px;'></div>
+  <div id="map" style='width: 1500px; height: 150px;'></div>
 </div>
 
+<% end %>
 
 <script type="text/javascript">
   
@@ -21,11 +28,11 @@ handler.buildMap({
       "lat": <%=j @club.latitude.to_json.html_safe %>,
       "lng": <%=j @club.longitude.to_json.html_safe %>,
       "picture": {
-        "url": "https://d30y9cdsu7xlg0.cloudfront.net/png/2400-84.png?Expires=1410170733&Signature=Go30rLjMJ~8wAnKlYQZo~xAITS7EY-51Umv2yWixinvZBq4K5igszHgBdYDhbFpcCRbxuVPAUdl3yqVE1C0O-qHjSFgREf1X~vMQww0M7zoAqhd1Z1mlpdmgBjZjMz7tHSg3UV0DK1jQlGOxjB9RTqjbm5hZHa7Eh2mBuVjS2XU_&Key-Pair-Id=APKAI5ZVHAXN65CHVU2Q",
-        "width":  80,
-        "height": 80
+        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png",
+        "width":  30,
+        "height": 30
       },
-      "infowindow": "hello!"
+      "infowindow": "<%=j @club.name.html_safe %>"
     }
   ]);
   handler.bounds.extendWith(markers);
@@ -35,3 +42,15 @@ handler.buildMap({
 console.log(handler);
 
 </script>
+<style type="text/css">
+  .crop {
+    height: 150px;
+    overflow: hidden;
+}
+
+.crop img {
+    width: 100%;
+    /*height: 150px;*/
+    /*margin: -75px 0 0 -100px;*/
+}
+</style>

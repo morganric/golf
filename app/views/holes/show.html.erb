@@ -1,7 +1,7 @@
 <%#= render 'shared/club_banner', object: @club, as: @club %>
 
 <div class="crop">
-    <img src="http://www.standrewsmajorgolfclub.com/files/images/d7b94028-a979-11e1-b768-bc305bd9eec9.jpg" alt="..." />
+    <%= image_tag(@hole.course.club.banner.url(:banner)) %>
 </div>
 
 <div class="container">
@@ -32,7 +32,7 @@
     </tr>
   </thead>
   <tbody>
-   <% @hole.tees.order("colour DESC").each do |tee| %>
+   <% @hole.tees.order("length DESC").each do |tee| %>
     <tr class="<%= tee.colour.downcase %>">
         <td><%= tee.colour %></td>
         <td><%= tee.length %></td>
@@ -44,10 +44,10 @@
 </table> 
   <div class="pull-right">
   <% unless @hole.number == 1 %>
-    <%= link_to "Previous", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Previous Hole", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   <% unless @hole.number == @hole.course.holes.last.number %>
-    <%= link_to "Next", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Next Hole", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   </div>
 	</div>

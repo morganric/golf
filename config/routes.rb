@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :clubs
 
-  get "/clubs/:id/green_fees" => "clubs#green_fees", as: :green_fees
+  get "/clubs/:id/fees" => "clubs#green_fees", as: :green_fees
   get "/clubs/:id/contact" => "clubs#contact", as: :contact
 
   get "/clubs/:id/courses/:id" => "courses#show", as: :club_course

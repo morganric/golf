@@ -1,12 +1,9 @@
 
-<div>
-  <div id="map" style='width: 1500px; height: 250px;'></div>
-</div>
-
+<%= render 'shared/club_banner', object: @club, as: @club %>
 <div class="container">
 
 <h1>
-  <%= @club.name %>
+  <%= @club.name %> Golf Club
 </h1>
 
 <%= render 'shared/club_nav' %>

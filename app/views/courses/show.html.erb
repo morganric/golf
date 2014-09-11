@@ -11,13 +11,15 @@
 
 <%= render 'shared/club_nav', object: @club, as: @club %>
 
+<div class="row" >
+<div class="col-md-8">
 <table class="table table-striped table-hover ">
   <thead>
     <tr>
-      <th>Number</th>
+      <th>Hole</th>
       <th>Name</th>
       <% @course.holes.first.tees.each do %>
-      <th>Tee</th>
+      <!-- <th>Tee</th> -->
       <th>Length</th>
       <th>Par</th>
       <% end %>
@@ -27,11 +29,11 @@
   <tbody>
     <% @course.holes.each do |hole| %>
     <tr>
-      <td><%= hole.number %></td>
-      <td><%= "Hole #{hole.number}" %></td>
+      <td><%= link_to hole.number,  course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id) %></td>
+      <td><%= link_to "Hole #{hole.number}", course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id) %></td>
       <% hole.tees.each do |tee| %>
-        <td><%= tee.colour %></td>
-        <td><%= tee.length %></td>
+        <!-- <td><%= tee.colour %></td> -->
+        <td class="<%= tee.colour.downcase %>"><%= tee.length %> yards</td>
         <td><%= tee.par %></td>
       <% end %>
       <td><%= link_to "View", course_hole_path(:club_id => hole.course.club.id, :course_id => hole.course.id,:id => hole.id), :class => "btn btn-sm btn-info pull", 'data-no-turbolink' => true %></td>
@@ -39,16 +41,21 @@
         <% end %>
     <tr class="info">
       <td>Total</td>
-      <td></td>
+      <!-- <td></td> -->
       <td></td>
       <% @course.holes.first.tees.each do |tee| %>
       <td><%= @course.total_tee_length(tee.colour)[:length] %></td>
       <td><%= @course.total_tee_par(tee.colour)[:par] %></td>
-      <td></td>
+      <!-- <td></td> -->
       <% end %>
+      <td></td>
     </tr>
   </tbody>
 </table> 
+</div>
+<div class="col-md-4" >
+</div>
+</div>
 
 
 <%= link_to 'Edit', edit_course_path(@course) %> |

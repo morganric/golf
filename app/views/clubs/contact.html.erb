@@ -1,6 +1,5 @@
-<div>
-  <div id="map" style='width: 1500px; height: 250px;'></div>
-</div>
+<%= render 'shared/club_banner', object: @club, as: @club %>
+
 
 <div class="container">
 
@@ -12,10 +11,58 @@
 
 <div class="row">
 <div class="col-md-8">
-	<p class="well">
+	<div>
+	  <div id="map" style='width: 750px; height: 400px;'></div>
+	</div>
+</div>
+
+<div class="col-md-4" >
+	<div class="well">
+
+		<address>
+			<%= @club.address %>
+		</address>
+		<p>
 		<%= mail_to @club.email, @club.email %>
-		<br/>
+		</p>
+		<p>
 		<a href="tel:<%= @club.phone_number %>"><%= @club.phone_number %></a>
-	</p>
+		</p>
+	</div>
 </div>
 </div>
+
+
+
+<script type="text/javascript">
+  
+handler = Gmaps.build('Google');
+
+handler.buildMap({
+ provider: {
+  disableDefaultUI: true,
+  mapTypeId: google.maps.MapTypeId.HYBRID,
+  zoom: 8,
+  zoomControl: false,
+  center: new google.maps.LatLng(<%=j @club.latitude.to_json.html_safe %>, <%=j @club.longitude.to_json.html_safe %>),
+
+}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers([
+    {
+      "lat": <%=j @club.latitude.to_json.html_safe %>,
+      "lng": <%=j @club.longitude.to_json.html_safe %>,
+      "picture": {
+        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png",
+        "width":  30,
+        "height": 30
+      },
+      "infowindow": "<%=j @club.name.html_safe %>"
+    }
+  ]);
+  handler.bounds.extendWith(markers);
+  // handler.fitMapToBounds();
+});
+
+console.log(handler);
+
+</script>
