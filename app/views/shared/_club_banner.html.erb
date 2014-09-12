@@ -1,7 +1,11 @@
 
 <% if @club.banner %>
-<div class="crop">
-   <%= image_tag(@club.banner.url(:banner)) %>
+<!-- <div class="crop"> -->
+   <%#= image_tag(@club.banner.url(:banner)) %>
+<!-- </div> -->
+
+<div class="crop" style="background-image: url('<%= @club.banner.url(:banner) %>');">
+  <%= image_tag(@club.logo.url, :class => "pull-left") %>
 </div>
 <% else %>
 
@@ -49,8 +53,8 @@ console.log(handler);
 }
 
 .crop img {
-    width: 100%;
+    /*width: 100%;*/
     /*height: 150px;*/
-    /*margin: -75px 0 0 -100px;*/
+    margin: 25px 0 0 125px;
 }
 </style>

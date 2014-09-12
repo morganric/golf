@@ -10,26 +10,26 @@
 <%= render 'shared/club_nav' %>
 
 <div class="row">
-<div class="col-md-8">
-	<div>
-	  <div id="map" style='width: 750px; height: 400px;'></div>
-	</div>
-</div>
+  <div class="col-md-4" >
+  	<div class="well">
 
-<div class="col-md-4" >
-	<div class="well">
+  		<address>
+  			<%= @club.address %>
+  		</address>
+  		<p>
+  		<%= mail_to @club.email, @club.email %>
+  		</p>
+  		<p>
+  		<a href="tel:<%= @club.phone_number %>"><%= @club.phone_number %></a>
+  		</p>
+  	</div>
+  </div>
+  <div class="col-md-8">
+    <div>
+      <div id="map" style='width: 750px; height: 400px;'></div>
+    </div>
+  </div>
 
-		<address>
-			<%= @club.address %>
-		</address>
-		<p>
-		<%= mail_to @club.email, @club.email %>
-		</p>
-		<p>
-		<a href="tel:<%= @club.phone_number %>"><%= @club.phone_number %></a>
-		</p>
-	</div>
-</div>
 </div>
 
 
