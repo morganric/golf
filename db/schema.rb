@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140911111644) do
+ActiveRecord::Schema.define(version: 20140915114443) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20140911111644) do
     t.string   "email"
     t.string   "slug"
     t.text     "membership"
+    t.boolean  "live"
   end
 
   create_table "coords", force: true do |t|

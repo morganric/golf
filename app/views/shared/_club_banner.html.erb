@@ -5,7 +5,7 @@
 <!-- </div> -->
 
 <div class="crop" style="background-image: url('<%= @club.banner.url(:banner) %>');">
-  <%= image_tag(@club.logo.url, :class => "pull-left") %>
+  <%= link_to image_tag(@club.logo.url, :class => "pull-left"), @club %>
 </div>
 <% else %>
 

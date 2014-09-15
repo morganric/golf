@@ -1,7 +1,7 @@
 class VisitorsController < ApplicationController
 
 def index
-	@clubs = Club.all
+	@clubs = Club.where(:live => true)
 	@hash = Gmaps4rails.build_markers(@clubs) do |club, marker|
 	  marker.lat club.latitude
 	  marker.lng club.longitude
