@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915114443) do
+ActiveRecord::Schema.define(version: 20140916093747) do
 
   create_table "clubs", force: true do |t|
     t.string   "name"
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140915114443) do
     t.text     "coords"
     t.string   "slug"
     t.string   "name"
+    t.text     "video_embed_code"
   end
 
   create_table "tees", force: true do |t|

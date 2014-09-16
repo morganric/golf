@@ -35,10 +35,10 @@
 </table> 
   <div class="pull-right">
   <% unless @hole.number == 1 %>
-    <%= link_to "Previous Hole", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Previous Hole", course_hole_path(:club_slug => @hole.course.club.slug, :course_slug => @hole.course.slug, :id => @hole.id.to_i - 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   <% unless @hole.number == @hole.course.holes.last.number %>
-    <%= link_to "Next Hole", course_hole_path(:club_id => @hole.course.club.id, :course_id => @hole.course.id, :id => @hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
+    <%= link_to "Next Hole", course_hole_path(:club_slug => @hole.course.club.slug, :course_slug => @hole.course.slug, :id => @hole.id.to_i + 1), 'data-no-turbolink' => true, :class => "btn btn-default btn-sm" %>
   <% end %>
   </div>
   </div>
@@ -59,7 +59,11 @@
         </div>
         <div class="tab-pane fade" id="video">
         <br/>
-          <iframe width="750" height="422" src="//www.youtube.com/embed/iOMtzWWg0lc" frameborder="0" allowfullscreen></iframe>
+          <% if @hole.video_embed_code != nil %>
+            <%= @hole.video_embed_code.html_safe %>
+          <% else %>
+            Coming Soon...
+          <% end %>
         </div>
       </div>
 	</div>
@@ -123,9 +127,7 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-
 });
-
 
 </script>]
 <% end %>
