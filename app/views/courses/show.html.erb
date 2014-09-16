@@ -27,7 +27,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @course.holes.each do |hole| %>
+    <% @course.holes.order('number ASC').each do |hole| %>
     <tr>
       <td><%= link_to hole.number,  course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.slug,:id => hole.id), method: "GET" %></td>
       <td><%= link_to "Hole #{hole.number}", course_hole_path(:club_slug => hole.course.club.slug, :course_slug => hole.course.id,:id => hole.id), method: "GET" %></td>
