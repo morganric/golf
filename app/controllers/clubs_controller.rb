@@ -1,5 +1,5 @@
 class ClubsController < ApplicationController
-  before_filter :authenticate_user!, except: [:show, :index]
+  before_filter :authenticate_user!, except: [:show, :index, :contact, :green_fees]
   before_action :set_club, only: [:show, :green_fees, :contact, :edit, :update, :destroy]
 
   # GET /clubs

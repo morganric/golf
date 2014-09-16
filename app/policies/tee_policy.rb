@@ -1,4 +1,4 @@
-class ClubPolicy
+class TeePolicy
   attr_reader :current_user, :model
 
   def initialize(current_user, model)
@@ -13,7 +13,7 @@ class ClubPolicy
   def show?
     true
   end
-
+  
   def new?
     @current_user.admin?
   end

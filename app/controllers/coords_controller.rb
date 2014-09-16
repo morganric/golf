@@ -1,4 +1,5 @@
 class CoordsController < ApplicationController
+  before_filter :authenticate_user!, except: [:show, :index]
   before_action :set_coord, only: [:show, :edit, :update, :destroy]
 
   # GET /coords
