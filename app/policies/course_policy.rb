@@ -18,6 +18,10 @@ class CoursePolicy
     @current_user.admin?
   end
 
+  def new?
+    @current_user.admin?
+  end
+
   def update?
     @current_user.admin?
   end
