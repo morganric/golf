@@ -52,14 +52,14 @@ handler.buildMap({
       "lat": <%=j @club.latitude.to_json.html_safe %>,
       "lng": <%=j @club.longitude.to_json.html_safe %>,
       "picture": {
-        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410372939/favicon_fxvuto.png",
+        "url": "http://res.cloudinary.com/dp74g8ibh/image/upload/v1410982533/golf-clwb-logo_sd82dl.png",
         "width":  30,
         "height": 30
       },
-      "infowindow": "<%=j @club.name.html_safe %>"
+      "infowindow": "<a href='#{club_url(@club.slug)}' ><%=j @club.name.html_safe %></a>"
     }
   ]);
-  handler.bounds.extendWith(markers);
+  handler.bounds.extendWith(markers); 
   // handler.fitMapToBounds();
 });
 
