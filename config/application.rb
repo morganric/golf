@@ -21,6 +21,7 @@ module Golf
     end
 
     config.assets.precompile += %w( sandstone.css sandstone.js )
+    config.autoload_paths += Dir["#{config.root}/lib/**/"]
     
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -15,7 +15,16 @@ Rails.application.routes.draw do
   get "/clubs/:club_slug/courses/:id" => "courses#show", as: :club_course
   get "/clubs/:club_slug/courses/:course_slug/holes/:id" => "holes#show", as: :course_hole
 
-  root to: 'visitors#index'
+  
   devise_for :users
   resources :users
+
+  # get '/' => 'clubs#show', :constraints => { :slug => /.+/ } , via: [:get, :post]
+  # root to: 'visitors#index'
+
+  constraints(Subdomain) do  
+     get '/' => 'clubs#show', via: [:get, :post]
+  end  
+  root to: 'visitors#index'
+
 end
